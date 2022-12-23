@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Data Tester</title>
+</head>
+<body>
+	<!--  -->
+
+	<div class="main">
+
+		<div class="window-1">
+			<div class="add">
+				<div class="header">
+					<h2>TeslaCraft</h2>
+				</div>
+			</div>
+
+			<div class="item-1">
+				<input type="text" class="nick" placeholder="Enter Player">
+			</div>
+
+			<div class="item-2">
+				<button class="search">Search</button>
+			</div>
+			<div class="item-3">
+				<button class="getCount">Get Count</button>
+			</div>
+
+		</div>
+
+		<div class="window-2">
+			<strong><p>Result: </p><span class="answer"></span></strong>
+		</div>
+
+	</div>
+
+	<!--  -->
+
+	<style type="text/css">
+
+		html, body {
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			background: url('background.png');
+			background-repeat: no-repeat;
+	  		background-position: center center;
+	  		background-attachment: fixed;
+	  		-webkit-background-size: cover;
+	 		-moz-background-size: cover;
+			-o-background-size: cover;
+	 		background-size: cover;
+		}
+
+		.main {
+			margin-top: 250px;
+			border: 0.5px solid black;
+			padding: 25px 10px;
+			background: lightgrey;
+			opacity: 1;
+		}
+
+		input {
+			widnth: 100px;
+			height: 30px;
+			padding-left: 10px;
+		}
+
+		.item-1, .item-2, .inform {
+			margin-top: 5px;
+		}
+
+		button {
+			width: 184.5px;
+			height: 30px;
+		}
+
+		.add {
+			display: flex;
+			justify-content: center;
+			margin-top: -10px;
+		}
+
+		.item-2 {
+			margin-bottom: 2.5px;
+		}
+
+	</style>
+
+	<!--  -->
+
+	<script type="text/javascript">
+		
+		let input = document.querySelector('input');
+
+		let button = document.querySelector('.search');
+
+		let answer = document.querySelector('.answer');
+
+		let rank = document.querySelector('.window-2 p');
+
+		let sum = document.querySelector('.item-3 button');
+
+		let data = [
+
+			[// Император
+				['ZOIDI_PLay_YT', 'aTj_GFC', 'narKOTUK2', '_Chamomile_', 'BEAST_PLAY', 'wileduw', 'frostik31', 'cutee_cloudd', 'Panda1207', 'nicoistol', 'TravkaBaba', '~Limora', 'xX_MrDanik_xX__', '11LeeMage11', 'vevecatsss36824', 'sunliight_d', 'Angela06', 'LeMoN4ick', 'Oune', 'vlad1249749', 'lisaveta', 'Trufel_12', 'Lev1z_', 'giguha1', 'SweetSlasher', 'reportBot', 'TLauncher_125467', 'Фая', 'nikamoniava', '4ePeWeHKa', 'DOMlNANT', 'lolimnotgay', 'Rozeto4kaa', 'Dread_Lord___', 'Nad33m', 'DUSYA', '023', '~ТурбаПушка~', 'shershen1323', 'ImperialTitan', 'pfpfpfff', 'xx_CrazyGamer_Xx', 'Good_Noob2', 'TheFreezeX', 'neurowll', 'stayker', 'Michal_', '_MrBrave_', 'xFothis', 'zaKkerman2', 'rl01', '-_Me4Ta_-', 'WwDiMaSiKwW', '_RoMaN134_', 'rempieSTGX', 'AlarmOfo', 'Mrleonardo123', 'Acid_Rain', 'AVRILLAVIGNE', 'heEnergyWator', 'XxX_No_Name_XxX', '_MaKs_GROm_', 'dipper11', 'Pupos1', 'iiFawWwaz', 'Lahm_Pro', 'McPak', 'Zz_NIKA_zZ', 'Guilhasx', 'MrArt2002s', 'maksim_2005_YT', 'Sult24', 'MeowMeowGirl1', 'Tarasik1', 'Zeus_DarkX', 'Soul0fPhoenix~', 'ГраВитифолз', 'Glebushka111', 'Прибой~', 'ferdies', 'Ola63', 'HentaiSkaban']
+			],
+			[// Маршал
+				['Mikey1010', 'Maks_CFiF_Mainer', 'littlecliq_L', '_Nastya_101_', 'xReywazer', 'DarknessMoon', 'FiFi_RiRi', 'Evodent', 'bicheromania', '~*Mr_Mine*~', 'MegaChanger', 'dimasiks20057', 'BandelYe', 'Noobminecrafter', 'qqwerne', 'pro_urko', 'Doreax', 'zLo_Lyb', 'aivix', 'Kermoved_L', 'dogcat_', 'KaPPss_']
+			],
+			[// Генерал
+				['rewewiio', 'мурашка', 'Krucc', 'qwixok_', 'youmiko', 'zeroxxx_qq6514', 'noyuton', 'Kroter', 'pvpmaster5463', 'Toymimay', '~1Импотенция1~', 'Magyrka', 'Maionezi', 'Mutify']
+			],
+			[// Полковник
+				['RQFST', 'gusenicenica', 'UtiaTop', '198765234', 'Sayner', 'Lexa_Ero', 'Desquiciadoh', '*Prepevochka*']
+			],
+			[// Подполковник
+				['minsternoah2003', 'Rebitl', 'Tost_ik', 'wwwoooffff', 'Markovka_ogorod', 'kri_stina12345', 'httptoxic', 'MR_____', 'Oiseau2', 'di_st_ro_y', 'popit2_kol', 'Vittaminckin', 'Zamik_a', 'TwinkGrizzly', 'Mizori', 'Black_energy', 'lalalisaaaaa', 'Fifister_Mya', 'KoJnIkS', 'keneus_play', 'vikysha', 'Duddos', 'yber_kot', 'HentaiSkabanLIVE']
+			],
+			[// Майор
+				['_FROSYA_', 'сладкая_соль', 'Dikoz_YT', 'shynio', 'N1KKKII']
+			],
+			[// Капитан
+				['~Komiq~']
+			],
+			[// Старший Лейтенант
+				['Dimon094', '_NoLolisNoLife__', 'Qunako']
+			],
+			[// Лейтенант
+				['mwlix_', 'Iqmz1t', 'alex_games_01', 'LAL777', 'giUsePPe_616', 'Sasha_2600', '_Mishka_54', 'sis1ya', '7heValurian_', 'Pablokoter', 'PABLOKOT1232']
+			],
+		]
+
+		button.onclick = function() {
+
+			for (let i = 0; i != data[0][0].length; i++) {
+
+				if (data[0][0][i] === input.value) {
+					rank.innerText = 'Император';
+					answer.innerText = data[0][0][i];
+					rank.style.color = "red";
+					console.log('true');
+				} else if (data[1][0][i] === input.value) {
+					rank.innerText = 'Маршал';
+					answer.innerText = data[1][0][i];
+			 		console.log('true');
+				} else if (data[2][0][i] === input.value) {
+					rank.innerText = 'Генерал';
+					answer.innerText = data[2][0][i];
+			 		console.log('true');
+				} else if (data[3][0][i] === input.value) {
+					rank.innerText = 'Полковник';
+					answer.innerText = data[3][0][i];
+			 		console.log('true');
+				} else if (data[4][0][i] === input.value) {
+					rank.innerText = 'Подполковник';
+					answer.innerText = data[4][0][i];
+			 		console.log('true');
+				} else if (data[5][0][i] === input.value) {
+					rank.innerText = 'Майор';
+					answer.innerText = data[5][0][i];
+			 		console.log('true');
+				} else if (data[6][0][i] === input.value) {
+					rank.innerText = 'Капитан';
+					answer.innerText = data[6][0][i];
+			 		console.log('true');
+				} else if (data[7][0][i] === input.value) {
+					rank.innerText = 'Капитан';
+					answer.innerText = data[7][0][i];
+			 		console.log('true');
+			 	} else if (data[8][0][i] === input.value) {
+					rank.innerText = 'Капитан';
+					answer.innerText = data[8][0][i];
+			 		console.log('true');
+			 	} else {
+					console.log('false');
+				}
+			}
+
+		}
+
+		let currency = '₽';
+
+			let price = {
+				rank0: 3699,
+				rank1: 1799,
+				rank2: 999,
+				rank3: 699,
+				rank4: 399,
+				rank5: 250,
+				rank6: 200,
+				rank7: 150,
+				rank8: 100,	
+			}
+
+			sum.onclick = function() {
+
+				let current = 0;
+
+				let rank0 = data[0][0].length;
+
+				let rank1 = data[1][0].length;
+
+				let rank2 = data[2][0].length;
+
+				let rank3 = data[3][0].length;
+
+				let rank4 = data[4][0].length;
+
+				let rank5 = data[5][0].length;
+
+				let rank6 = data[6][0].length;
+
+				let rank7 = data[7][0].length;
+
+				let rank8 = data[8][0].length;
+
+				// start counting
+
+				rank0 *= price.rank0;
+
+				rank1 *= price.rank1;
+
+				rank2 *= price.rank2;
+
+				rank3 *= price.rank3;
+
+				rank4 *= price.rank4;
+
+				rank5 *= price.rank5;
+
+				rank6 *= price.rank6;
+
+				rank7 *= price.rank7;
+
+				rank8 *= price.rank8;
+
+				// current counting starting
+
+				current = rank0 + rank1 + rank2 + rank3 + rank4 + rank5 + rank6 + rank7 + rank8;
+
+				// current has been counted
+
+				rank.innerText = current;
+
+			}
+
+	</script>
+
+</body>
+</html>
+
